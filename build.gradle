@@ -13,14 +13,15 @@ repositories {
 }
 
 ext {
-    set('vaadinVersion', "14.0.13")
+    set('vaadinVersion', "14.0.15")
 }
 
 dependencies {
     implementation 'com.vaadin:vaadin-spring-boot-starter'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+   //     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    compile ('com.github.eirslett:frontend-maven-plugin:1.7.6')
 }
 
 dependencyManagement {
