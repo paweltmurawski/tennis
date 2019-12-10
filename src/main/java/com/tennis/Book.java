@@ -6,12 +6,12 @@ public class Book {
     private String title;
     private String author;
     private String publicationYear;
-    private String type;
+    private BookType type;
 
     public Book() {
     }
 
-    public Book(String title, String author, String publicationYear, String type) {
+    public Book(String title, String author, String publicationYear, BookType type) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
@@ -30,7 +30,7 @@ public class Book {
         return publicationYear;
     }
 
-    public String getType() {
+    public BookType getType() {
         return type;
     }
 
@@ -41,11 +41,10 @@ public class Book {
 
         Book book = (Book) o;
 
-        if (title != null ? !title.equals(book.title) : book.title != null) return false;
-        if (author != null ? !author.equals(book.author) : book.author != null) return false;
-        if (publicationYear != null ? !publicationYear.equals(book.publicationYear) : book.publicationYear != null)
-            return false;
-        return type != null ? type.equals(book.type) : book.type == null;
+        if (!publicationYear.equals(book.publicationYear)) return false;
+        if (!Objects.equals(title, book.title)) return false;
+        if (!Objects.equals(author, book.author)) return false;
+        return Objects.equals(type, book.type);
     }
 
     @Override
@@ -69,7 +68,7 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
-    public void setType(String type) {
+    public void setType(BookType type) {
         this.type = type;
     }
 }
