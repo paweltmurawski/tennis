@@ -1,6 +1,8 @@
 
 package com.tennis;
 
+import com.tennis.domain.TennisProductService;
+import com.tennis.domain.TennisProducts;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -9,17 +11,13 @@ import com.vaadin.flow.router.Route;
 
 @Route
 public class MainView extends VerticalLayout {
-    private Grid<Tennis_Products> grid = new Grid<>(Tennis_Products.class);
-    private TextField filter = new TextField();
+    private TennisProductService tennisProductService = TennisProductService.getInstance();
+    private Grid<TennisProducts> grid = new Grid<>(TennisProducts.class);
 
     public MainView() {
-        grid.setColumns("product_name", "description", "product_price");
+        grid.setColumns("productName", "description", "productPrice");
         add(grid);
         setSizeFull();
-        filter.setPlaceholder("Filter by product name");
-        filter.setClearButtonVisible(true);
-        filter.setValueChangeMode(ValueChangeMode.EAGER);
-    //    filter.addValueChangeListener(e -> updateTennisProducts());
-        add(filter, grid);
+      ;
     }
 }
