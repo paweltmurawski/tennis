@@ -41,6 +41,6 @@ public class DbConnectorTest {
         }
         rs.close();
         statement.close();
-        Assert.assertEquals(1, count);
+        Assert.assertEquals(0, count);
     }
 }

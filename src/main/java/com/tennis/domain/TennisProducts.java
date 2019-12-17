@@ -1,12 +1,16 @@
 package com.tennis.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import java.math.BigDecimal;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class TennisProducts {
     private String productName;
     private String description;
-    private BigDecimal productPrice;
+    private String productPrice;
 }
